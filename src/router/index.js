@@ -3,7 +3,9 @@ import Router from 'vue-router'
 
 const Home = resolve => require(['@/views/Home'], resolve)
 const About = resolve => require(['@/views/About'], resolve)
-
+const CodeGenerate = resolve => require(['@/views/CodeGenerate'], resolve)
+const CodeGenerate2 = resolve => require(['@/views/CodeGenerate2'], resolve)
+const Confusion = resolve => require(['@/views/Confusion'], resolve)
 const Error404 = resolve => require(['@/views/error/Error404'], resolve)
 
 Vue.use(Router)
@@ -16,6 +18,18 @@ let routes = [
     {
         path: '/about',
         component: About
+    },
+    {
+        path: '/code/generate',
+        component: CodeGenerate
+    },
+    {
+        path: '/code/generate2',
+        component: CodeGenerate2
+    },
+    {
+        path: '/js/confusion',
+        component: Confusion
     },
     {
         path: '*',
