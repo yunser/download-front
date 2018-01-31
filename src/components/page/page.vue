@@ -12,9 +12,9 @@
                 <ui-list-item title="SQL 生成 Java 代码" to="/code/generate">
                     <ui-icon slot="left" value="grade"/>
                 </ui-list-item>
-                <ui-list-item title="Javascript 反混淆" to="/js/confusion">
-                    <ui-icon slot="left" value="grade"/>
-                </ui-list-item>
+                <!--<ui-list-item title="Javascript 反混淆" to="/js/confusion">-->
+                    <!--<ui-icon slot="left" value="grade"/>-->
+                <!--</ui-list-item>-->
             </ui-list>
             <ui-list class="ui-position-bottom" @itemClick="toggle()">
                 <ui-list-item title="关于" href="http://about.yunser.com/" target="_blank">
