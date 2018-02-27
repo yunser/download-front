@@ -1,15 +1,15 @@
 <template>
-    <ui-page :title="title || page.title" ref="page">
+    <ui-page :title="title || page.title" :page="page" :backable="backable" ref="page">
         <div slot="drawer">
             <ui-appbar title=""></ui-appbar>
             <ui-list @itemClick="toggle()">
                 <ui-list-item title="图片批量下载" to="/">
                     <ui-icon slot="left" value="grade"/>
                 </ui-list-item>
-                <ui-list-item title="代码片段生成" to="/code/generate2">
+                <ui-list-item title="下载地址加密解密" to="/urlCoding">
                     <ui-icon slot="left" value="grade"/>
                 </ui-list-item>
-                <ui-list-item title="SQL 生成 Java 代码" to="/code/generate">
+                <ui-list-item title="代码片段生成" to="/code/generate">
                     <ui-icon slot="left" value="grade"/>
                 </ui-list-item>
                 <!--<ui-list-item title="Javascript 反混淆" to="/js/confusion">-->

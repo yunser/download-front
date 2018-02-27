@@ -3,8 +3,9 @@ import Router from 'vue-router'
 
 const Home = resolve => require(['@/views/Home'], resolve)
 const About = resolve => require(['@/views/About'], resolve)
-const SqlGenerate = resolve => require(['@/views/SqlGenerate'], resolve)
-const CodeGenerate2 = resolve => require(['@/views/CodeGenerate2'], resolve)
+const CodeGenerate = resolve => require(['@/views/CodeGenerate'], resolve)
+const UrlCoding = resolve => require(['@/views/UrlCoding'], resolve)
+const UrlCodingHelp = resolve => require(['@/views/UrlCodingHelp'], resolve)
 const Confusion = resolve => require(['@/views/Confusion'], resolve)
 const Error404 = resolve => require(['@/views/error/Error404'], resolve)
 
@@ -20,12 +21,16 @@ let routes = [
         component: About
     },
     {
-        path: '/code/generate',
-        component: SqlGenerate
+        path: '/UrlCoding',
+        component: UrlCoding
     },
     {
-        path: '/code/generate2',
-        component: CodeGenerate2
+        path: '/UrlCoding/help',
+        component: UrlCodingHelp
+    },
+    {
+        path: '/code/generate',
+        component: CodeGenerate
     },
     {
         path: '/js/confusion',
