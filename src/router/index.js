@@ -7,6 +7,7 @@ const CodeGenerate = resolve => require(['@/views/CodeGenerate'], resolve)
 const UrlCoding = resolve => require(['@/views/UrlCoding'], resolve)
 const UrlCodingHelp = resolve => require(['@/views/UrlCodingHelp'], resolve)
 const Confusion = resolve => require(['@/views/Confusion'], resolve)
+const Pattern = resolve => require(['@/views/Pattern'], resolve)
 const Error404 = resolve => require(['@/views/error/Error404'], resolve)
 
 Vue.use(Router)
@@ -31,6 +32,10 @@ let routes = [
     {
         path: '/code/generate',
         component: CodeGenerate
+    },
+    {
+        path: '/pattern',
+        component: Pattern
     },
     {
         path: '/js/confusion',

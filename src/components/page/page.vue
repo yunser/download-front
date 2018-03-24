@@ -6,6 +6,9 @@
                 <ui-list-item title="图片批量下载" to="/">
                     <ui-icon slot="left" value="grade"/>
                 </ui-list-item>
+                <ui-list-item title="纹理图片" to="/pattern">
+                    <ui-icon slot="left" value="grade"/>
+                </ui-list-item>
                 <ui-list-item title="下载地址加密解密" to="/urlCoding">
                     <ui-icon slot="left" value="grade"/>
                 </ui-list-item>
