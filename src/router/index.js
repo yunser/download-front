@@ -8,6 +8,7 @@ const UrlCoding = resolve => require(['@/views/UrlCoding'], resolve)
 const UrlCodingHelp = resolve => require(['@/views/UrlCodingHelp'], resolve)
 const Confusion = resolve => require(['@/views/Confusion'], resolve)
 const Pattern = resolve => require(['@/views/Pattern'], resolve)
+const Download = resolve => require(['@/views/Download'], resolve)
 const Error404 = resolve => require(['@/views/error/Error404'], resolve)
 
 Vue.use(Router)
@@ -40,6 +41,10 @@ let routes = [
     {
         path: '/js/confusion',
         component: Confusion
+    },
+    {
+        path: '/download',
+        component: Download
     },
     {
         path: '*',
