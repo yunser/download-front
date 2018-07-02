@@ -1,39 +1,28 @@
 <template>
-    <my-page title="代码片段生成">
-        <ui-row gutter>
-            <ui-col width="100" tablet="100" desktop="50">
-                <section class="input-box">
-                    <div>
-                        <label>开始数字：</label>
-                        <ui-text-field v-model.number="start" />
-                    </div>
-                    <div>
-                        <label>结束数字：</label>
-                        <ui-text-field v-model.number="end" />
-                    </div>
-                    <div class="tip">网址：</div>
-                    <ui-text-field v-model.number="text" multiLine hintText="http://" :rows="2" />
-                    <!--<textarea class="form-control" v-model="text" rows="2" placeholder="http://"></textarea>-->
-                    <div class="btns">
-                        <ui-raised-button label="生成代码" primary @click="compute" />
-                    </div>
-                    <div>生成的代码：</div>
-                    <pre><code>{{ code }}</code></pre>
-                    <!--<ul class="image-list">-->
-                    <!--<li v-for="image in images">-->
-                    <!--{{ image }}-->
-                    <!--</li>-->
-                    <!--</ul>-->
-                </section>
-            </ui-col>
-            <ui-col width="100" tablet="100" desktop="50">
-                <ui-article class="article">
-                    <h2>说明</h2>
-                    <p>代码生成工具。</p>
-                </ui-article>
-            </ui-col>
-        </ui-row>
-
+    <my-page title="代码片段生成" :page="page">
+        <section class="input-box">
+            <div>
+                <label>开始数字：</label>
+                <ui-text-field v-model.number="start" />
+            </div>
+            <div>
+                <label>结束数字：</label>
+                <ui-text-field v-model.number="end" />
+            </div>
+            <div class="tip">网址：</div>
+            <ui-text-field v-model.number="text" multiLine hintText="http://" :rows="2" />
+            <!--<textarea class="form-control" v-model="text" rows="2" placeholder="http://"></textarea>-->
+            <div class="btns">
+                <ui-raised-button label="生成代码" primary @click="compute" />
+            </div>
+            <div>生成的代码：</div>
+            <pre><code>{{ code }}</code></pre>
+            <!--<ul class="image-list">-->
+            <!--<li v-for="image in images">-->
+            <!--{{ image }}-->
+            <!--</li>-->
+            <!--</ul>-->
+        </section>
     </my-page>
 </template>
 
@@ -45,7 +34,19 @@
                 text: '<img class="img" src="/static/img/gallery-{%d}.jpg">',
                 start: 1,
                 end: 3,
-                images: ['http://tool2.yunser.com/asset/img/test1.jpg', 'http://tool2.yunser.com/asset/img/test2.jpg']
+                images: [
+                    'http://tool2.yunser.com/asset/img/test1.jpg',
+                    'http://tool2.yunser.com/asset/img/test2.jpg'
+                ],
+                page: {
+                    menu: [
+                        {
+                            type: 'icon',
+                            icon: 'help',
+                            to: '/code/generate/help'
+                        }
+                    ]
+                }
             }
         },
         mounted() {

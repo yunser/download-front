@@ -37,14 +37,17 @@
     export default {
         data () {
             return {
-                text: 'http://tool2.yunser.com/asset/img/test{%d}.jpg',
+                text: 'https://download.yunser.com/static/img/test{%d}.jpg',
                 start: 1,
                 end: 3,
                 images: ['http://tool2.yunser.com/asset/img/test1.jpg', 'http://tool2.yunser.com/asset/img/test2.jpg']
             }
         },
+        mounted() {
+            this.compute()
+        },
         methods: {
-            compute: function () {
+            compute() {
                 this.images = []
                 let is2d = this.text.match('{%2d}')
                 let is3d = this.text.match('{%3d}')
@@ -67,7 +70,7 @@
                     this.images.push(url)
                 }
             },
-            clear: function () {
+            clear() {
                 this.text = ''
                 this.compute()
             }
