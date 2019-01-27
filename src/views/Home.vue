@@ -1,35 +1,18 @@
 <template>
-    <my-page title="图片批量下载">
-        <section class="input-box">
-            <div>
-                <label>开始数字：</label>
-                <ui-text-field v-model.number="start" />
+    <my-page title="下载">
+        <div class="tool-list">
+            <div class="mu-paper list-item mu-paper-round mu-paper-1" 
+                v-for="app in apps">
+                <router-link class="link" :to="app.to" :href="app.href" :target="app.target">
+                    <img :src="app.icon" class="img">
+                    <div class="info">
+                        <h3 class="text">{{ app.name }}</h3>
+                        <div class="desc">{{ app.desc }}</div>
+                    </div>
+                    <i class="icon icon-heart"></i>
+                </router-link>
             </div>
-            <div>
-                <label>结束数字：</label>
-                <ui-text-field v-model.number="end" />
-            </div>
-            <div class="tip">网址：</div>
-            <ui-text-field v-model.number="text" multiLine hintText="http://" :rows="2" />
-            <!--<textarea class="form-control" v-model="text" rows="2" placeholder="http://"></textarea>-->
-            <div class="btns">
-                <ui-raised-button label="预览图片" primary @click="compute" />
-            </div>
-            <div>这是所有将要下载的图片：</div>
-            <ul class="image-list">
-                <li v-for="image in images">
-                    <img :src="image">
-                </li>
-            </ul>
-        </section>
-        <ui-article class="article">
-            <h2>说明</h2>
-            <p>有时候需要批量下载一些地址有规律的图片（如：xxx/1.jpg、xxx/2.jpg），这个工具可以帮到你。</p>
-            <p>如何下载？鼠标右键、网页另存为，保存时会生成一个文件夹，图片在生成的文件夹里面。纯前端实现，不是后台打包下载，免得你们爆了我服务器。</p>
-            <p>网址中用 {%d} 表示数字，比如 image{%d} 就会生成 image1、image2 之类的图片。</p>
-            <p>如果要下载 image08、image09、image10 这样的图片，请使用 {%2d}，这样的话，小于 10 的数字前面就会自动补零。</p>
-            <p>同理，要下载 image008、image009、image010 这样的图片，请使用 {%3d}</p>
-        </ui-article>
+        </div>
     </my-page>
 </template>
 
@@ -37,84 +20,130 @@
     export default {
         data () {
             return {
-                text: 'https://download.yunser.com/static/img/test{%d}.jpg',
-                start: 1,
-                end: 3,
-                images: ['http://tool2.yunser.com/asset/img/test1.jpg', 'http://tool2.yunser.com/asset/img/test2.jpg']
+                apps: [
+                    {
+                        name: '图片批量下载',
+                        desc: '',
+                        icon: '/static/img/download.svg',
+                        to: '/patch'
+                    },
+                    {
+                        name: '纹理图片',
+                        desc: '',
+                        icon: '/static/img/texture.svg',
+                        to: '/pattern'
+                    },
+                    {
+                        name: '下载地址加密解密',
+                        desc: '',
+                        icon: '/static/img/download.svg',
+                        to: '/urlCoding'
+                    },
+                    {
+                        name: '代码片段生成',
+                        desc: '',
+                        icon: '/static/img/download.svg',
+                        to: '/code/generate'
+                    }
+                ]
             }
         },
+        computed: {
+        },
         mounted() {
-            this.compute()
         },
         methods: {
-            compute() {
-                this.images = []
-                let is2d = this.text.match('{%2d}')
-                let is3d = this.text.match('{%3d}')
-                console.log(is2d)
-                let url
-                for (let i = this.start; i <= this.end; i++) {
-                    if (is3d) {
-                        if (i < 10) {
-                            url = this.text.replace('{%3d}', '00' + i)
-                        } else if (i < 100) {
-                            url = this.text.replace('{%3d}', '0' + i)
-                        } else {
-                            url = this.text.replace('{%3d}', i)
-                        }
-                    } else if (is2d && i < 10) {
-                        url = this.text.replace('{%2d}', '0' + i)
-                    } else {
-                        url = this.text.replace('{%d}', i)
-                    }
-                    this.images.push(url)
-                }
+            init() {
             },
-            clear() {
-                this.text = ''
-                this.compute()
+            fileChange(e) {
+            },
+            sizeStr: function (size) {
             }
         }
     }
 </script>
 
 <style lang="scss" scoped>
-    /**/
-    .input-box {
-        .btns {
-            margin-bottom: 16px;
+@import '../scss/var';
+
+.tool-list {
+    max-width: 840px;
+    margin: 0 auto;
+    @include clearfix;
+    .list-item {
+        position: relative;
+        float: left;
+        width: 260px;
+        height: 96px;
+        padding: 8px;
+        margin: 2px 16px 16px 2px;
+        background-color: #fff;
+        //border: 1px solid #ccc;
+        &:hover {
+            background-color: #f9f9f9;
+            // box-shadow: 0 3px 10px rgba(0,0,0,.156863), 0 3px 10px rgba(0,0,0,.227451);
+            //border-color: #09c;
+            .icon {
+                display: block;
+            }
         }
-        .tip {
-            margin-bottom: 16px;
-            color: #999;
-        }
-        textarea {
-            margin-bottom: 16px;
+        &.active {
+            border: 1px solid #f00;
         }
     }
-    .result-box .info {
-        margin-bottom: 16px;
+    a {
+        display: block;
+        height: 100%;
+        color: #666;
     }
-    .list-common {
-        padding-left: 16px;
-        li {
-            list-style: disc;
-        }
+    .img {
+        float: left;
+        width: 72px;
+        height: 72px;
+        margin-right: 16px;
+        background-color: #fff;
+        border: 1px solid #e9e9e9;
+        border-radius: 8px;
     }
-    .section h3 {
+    .info {
+        float: left;
+    }
+    .text {
         font-size: 18px;
-        margin-bottom: 16px;
+        color: #000;
     }
-    .image-list {
+    .header {
         overflow: hidden;
-        li {
-            float: left;
-            margin-right: 16px;
-            margin-top: 16px;
-        }
-        img {
-            width: 80px;
-            height: 80px;
+    }
+    .desc {
+        max-width: 150px;
+        margin-top: 8px;
+    }
+    .icon-heart {
+        display: none;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        &:hover {
+            color: #f00;
         }
     }
+    .icon-close {
+        display: none;
+        position: absolute;
+        top: 32px;
+        right: 8px;
+        &:hover {
+            color: #f00;
+        }
+    }
+}
+@media all and (max-width: 400px){
+    .tool-list {
+        .list-item {
+            width: 100%;
+            margin-right: 0;
+        }
+    }
+}
 </style>

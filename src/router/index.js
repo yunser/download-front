@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 const Home = resolve => require(['@/views/Home'], resolve)
+const Patch = resolve => require(['@/views/Patch'], resolve)
 const About = resolve => require(['@/views/About'], resolve)
 const CodeGenerate = resolve => require(['@/views/CodeGenerate'], resolve)
 const CodeGenerateHelp = resolve => require(['@/views/CodeGenerateHelp'], resolve)
@@ -18,6 +19,10 @@ let routes = [
     {
         path: '/',
         component: Home
+    },
+    {
+        path: '/patch',
+        component: Patch
     },
     {
         path: '/about',
