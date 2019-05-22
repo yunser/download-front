@@ -1,6 +1,6 @@
-.ui-position-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
+.common-container {
+    // width: 800px;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 16px 16px 80px 16px;
+  }

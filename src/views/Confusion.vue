@@ -1,46 +1,47 @@
 <template>
     <my-page title="Javascript 反混淆">
-        <div>开发中。。。</div>
-        <ui-row gutter>
-            <ui-col width="100" tablet="100" desktop="50">
-                <div id="wrap">
-                    <h1>js反混淆</h1>
-                    <div>
-                        <fieldset id="options">
-                            <h2>设置选项</h2>
-                            <ul>
-                                <li><select name="tabsize" id="tabsize">
-                                    <option value="1">缩进一个制表符</option>
-                                    <option value="2">缩进2个空格</option>
-                                    <option value="3">缩进3个空格</option>
-                                    <option value="4" selected="selected">缩进4个空格</option>
-                                    <option value="8">缩进8个空格</option>
-                                </select></li>
-                                <li><input type="checkbox" id="braces-on-own-line"><label for="braces-on-own-line">花括号独占一行</label><br></li>
-                                <li><input type="checkbox" id="preserve-newlines" checked="checked"><label for="preserve-newlines">保留空行</label><br></li>
-                                <li><input type="checkbox" id="detect-packers" checked="checked"><label for="detect-packers">检查是否压缩</label><br></li>
-                                <li><input type="checkbox" id="keep-array-indentation"><label for="keep-array-indentation">保留数组的压缩</label></li>
-                            </ul>
-                        </fieldset>
-                        <fieldset id="textarea">
-                            <div><textarea rows="30" cols="30" name="content" id="content"></textarea></div>
-                            <button onclick="return do_js_beautify()" id="beautify">开始格式化</button>
-                        </fieldset>
+        <div class="common-container container">
+            <div>开发中。。。</div>
+            <ui-row gutter>
+                <ui-col width="100" tablet="100" desktop="50">
+                    <div id="wrap">
+                        <h1>js反混淆</h1>
+                        <div>
+                            <fieldset id="options">
+                                <h2>设置选项</h2>
+                                <ul>
+                                    <li><select name="tabsize" id="tabsize">
+                                        <option value="1">缩进一个制表符</option>
+                                        <option value="2">缩进2个空格</option>
+                                        <option value="3">缩进3个空格</option>
+                                        <option value="4" selected="selected">缩进4个空格</option>
+                                        <option value="8">缩进8个空格</option>
+                                    </select></li>
+                                    <li><input type="checkbox" id="braces-on-own-line"><label for="braces-on-own-line">花括号独占一行</label><br></li>
+                                    <li><input type="checkbox" id="preserve-newlines" checked="checked"><label for="preserve-newlines">保留空行</label><br></li>
+                                    <li><input type="checkbox" id="detect-packers" checked="checked"><label for="detect-packers">检查是否压缩</label><br></li>
+                                    <li><input type="checkbox" id="keep-array-indentation"><label for="keep-array-indentation">保留数组的压缩</label></li>
+                                </ul>
+                            </fieldset>
+                            <fieldset id="textarea">
+                                <div><textarea rows="30" cols="30" name="content" id="content"></textarea></div>
+                                <button onclick="return do_js_beautify()" id="beautify">开始格式化</button>
+                            </fieldset>
+                        </div>
+                        <div id="bottom">
+                            <p>这个页面可以格式化JavaScript脚本和html代码，并且可以解压缩由JsPacker压缩过的脚本代码。
+                            </p><h2>注意：虽然程序经过无数次的测试，但是建议您保存好源文档后再操作，方便维护的同时也避免不必要的损失。</h2>
+                        </div>
                     </div>
-                    <div id="bottom">
-                        <p>这个页面可以格式化JavaScript脚本和html代码，并且可以解压缩由JsPacker压缩过的脚本代码。
-                        </p><h2>注意：虽然程序经过无数次的测试，但是建议您保存好源文档后再操作，方便维护的同时也避免不必要的损失。</h2>
-                    </div>
-                </div>
-            </ui-col>
-            <ui-col width="100" tablet="100" desktop="50">
-                <ui-article class="article">
-                    <h2>说明</h2>
-                    <p>代码生成工具。</p>
-                </ui-article>
-            </ui-col>
-        </ui-row>
-
+                </ui-col>
+                <ui-col width="100" tablet="100" desktop="50">
+                    <ui-article class="article">
+                        <h2>说明</h2>
+                        <p>代码生成工具。</p>
+                    </ui-article>
+                </ui-col>
+            </ui-row>
+        </div>
     </my-page>
 </template>
 

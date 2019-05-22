@@ -1,21 +1,23 @@
 <template>
     <my-page title="纹理图片">
-        <ul class="pattern-list">
-            <li class="item" v-for="pattern in list" 
-                :style="{'background-image': 'url(/static/img/pattern/' + pattern.url + ')'}">
-                <ui-icon-button class="view" 
-                    @click="view(pattern)"
-                    icon="remove_red_eye" />
-                <ui-icon-button class="download" 
-                    :href="'/static/img/pattern/' + pattern.url"
-                    :download="pattern.url"
-                    icon="file_download" />
-            </li>
-        </ul>
-        <div class="copyright">图片来自网络，如果无意中侵犯了您的版权，请来信告知，本站将在 3 个工作日内删除。</div>
-        <div class="preview" v-if="previewVisible"
-            @click="previewVisible = false"
-            :style="{'background-image': 'url(/static/img/pattern/' + pattern.url + ')'}"></div>
+        <div class="common-container container">
+            <ul class="pattern-list">
+                <li class="item" v-for="pattern in list" 
+                    :style="{'background-image': 'url(/static/img/pattern/' + pattern.url + ')'}">
+                    <ui-icon-button class="view" 
+                        @click="view(pattern)"
+                        icon="remove_red_eye" />
+                    <ui-icon-button class="download" 
+                        :href="'/static/img/pattern/' + pattern.url"
+                        :download="pattern.url"
+                        icon="file_download" />
+                </li>
+            </ul>
+            <div class="copyright">图片来自网络，如果无意中侵犯了您的版权，请来信告知，本站将在 3 个工作日内删除。</div>
+            <div class="preview" v-if="previewVisible"
+                @click="previewVisible = false"
+                :style="{'background-image': 'url(/static/img/pattern/' + pattern.url + ')'}"></div>
+        </div>
     </my-page>
 </template>
 
@@ -90,8 +92,13 @@
 <style lang="scss" scoped>
     @import '../scss/var';
 
+    .container {
+        max-width: 1200px;
+    }
+
     .pattern-list {
-        @include clearfix;
+        display: flex;
+        flex-wrap: wrap;
         .item {
             position: relative;
             float: left;

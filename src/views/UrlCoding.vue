@@ -1,39 +1,41 @@
 <template>
     <my-page title="下载地址加密解密" :page="page">
-        <div class="form-group">
-            <label class="control-label">输入要加密的网址或要解密的迅雷、快车、旋风、电驴下载URL:</label>
-            <div>
-                <ui-text-field  v-model="url" />
-                <!-- <input class="form-control" type="text" id="input" v-model="url" onclick="this.select();" onkeydown="if(event.keyCode===13){Encryption();}"> -->
+        <div class="common-container container">
+            <div class="form-group">
+                <label class="control-label">输入要加密的网址或要解密的迅雷、快车、旋风、电驴下载URL:</label>
+                <div>
+                    <ui-text-field  v-model="url" />
+                    <!-- <input class="form-control" type="text" id="input" v-model="url" onclick="this.select();" onkeydown="if(event.keyCode===13){Encryption();}"> -->
+                </div>
             </div>
+            <div class="btns">
+                <ui-raised-button class="btn" label="加密 URL" primary @click="Encryption" />
+                <ui-raised-button class="btn" label="解密 URL" secondary @click="Decryption" />
+            </div>
+            <ui-article>
+                <table class="table table-bordered" v-if="show == 1">
+                    <tr>
+                        <th width="160">迅雷地址</th>
+                        <td><a target="_blank" :href="encodeUrl.thunder">{{ encodeUrl.thunder }}</a></td>
+                    </tr>
+                    <tr>
+                        <th>快车地址</th>
+                        <td><a target="_blank" :href="encodeUrl.flashget">{{ encodeUrl.flashget }}</a></td>
+                    </tr>
+                    <tr>
+                        <th>旋风地址</th>
+                        <td><a target="_blank" :href="encodeUrl.xuanfeng">{{ encodeUrl.xuanfeng }}</a></td>
+                    </tr>
+                </table>
+                <table class="table table-bordered" v-if="show == 2">
+                    <tr>
+                        <th width="160">原始地址</th>
+                        <td><a target="_blank" :href="decodeUrl.url">{{ decodeUrl.url }}</a></td>
+                    </tr>
+                </table>
+                <div if="error">{{ error }}</div>
+            </ui-article>
         </div>
-        <div class="btns">
-            <ui-raised-button class="btn" label="加密 URL" primary @click="Encryption" />
-            <ui-raised-button class="btn" label="解密 URL" secondary @click="Decryption" />
-        </div>
-        <ui-article>
-            <table class="table table-bordered" v-if="show == 1">
-                <tr>
-                    <th width="160">迅雷地址</th>
-                    <td><a target="_blank" :href="encodeUrl.thunder">{{ encodeUrl.thunder }}</a></td>
-                </tr>
-                <tr>
-                    <th>快车地址</th>
-                    <td><a target="_blank" :href="encodeUrl.flashget">{{ encodeUrl.flashget }}</a></td>
-                </tr>
-                <tr>
-                    <th>旋风地址</th>
-                    <td><a target="_blank" :href="encodeUrl.xuanfeng">{{ encodeUrl.xuanfeng }}</a></td>
-                </tr>
-            </table>
-            <table class="table table-bordered" v-if="show == 2">
-                <tr>
-                    <th width="160">原始地址</th>
-                    <td><a target="_blank" :href="decodeUrl.url">{{ decodeUrl.url }}</a></td>
-                </tr>
-            </table>
-            <div if="error">{{ error }}</div>
-        </ui-article>
     </my-page>
 </template>
 

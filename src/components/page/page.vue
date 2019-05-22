@@ -6,15 +6,13 @@
             </div>
             <ui-list @itemClick="toggle()">
                 <ui-list-item title="首页" to="/">
-                    <ui-icon slot="left" value="grade"/>
+                    <ui-icon slot="left" value="home"/>
                 </ui-list-item>
                 <!--<ui-list-item title="Javascript 反混淆" to="/js/confusion">-->
                     <!--<ui-icon slot="left" value="grade"/>-->
                 <!--</ui-list-item>-->
-            </ui-list>
-            <ui-list class="ui-position-bottom" @itemClick="toggle()">
-                <ui-list-item title="关于" href="http://about.yunser.com/" target="_blank">
-                    <ui-icon slot="left" value="grade"/>
+                <ui-list-item title="关于" href="https://project.yunser.com/products/4f8b5a80509611e98b14ab3833b9d28b" target="_blank">
+                    <ui-icon slot="left" value="info"/>
                 </ui-list-item>
             </ui-list>
         </div>

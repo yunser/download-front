@@ -1,6 +1,8 @@
 <template>
     <my-page title="下载">
-        <ui-raised-button label="下载" primary @click="download" />
+        <div class="common-container container">
+            <ui-raised-button label="下载" primary @click="download" />
+        </div>
     </my-page>
 </template>
 

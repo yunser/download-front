@@ -1,28 +1,30 @@
 <template>
     <my-page title="代码片段生成" :page="page">
-        <section class="input-box">
-            <div>
-                <label>开始数字：</label>
-                <ui-text-field v-model.number="start" />
-            </div>
-            <div>
-                <label>结束数字：</label>
-                <ui-text-field v-model.number="end" />
-            </div>
-            <div class="tip">网址：</div>
-            <ui-text-field v-model.number="text" multiLine hintText="http://" :rows="2" />
-            <!--<textarea class="form-control" v-model="text" rows="2" placeholder="http://"></textarea>-->
-            <div class="btns">
-                <ui-raised-button label="生成代码" primary @click="compute" />
-            </div>
-            <div>生成的代码：</div>
-            <pre><code>{{ code }}</code></pre>
-            <!--<ul class="image-list">-->
-            <!--<li v-for="image in images">-->
-            <!--{{ image }}-->
-            <!--</li>-->
-            <!--</ul>-->
-        </section>
+        <div class="common-container container">
+            <section class="input-box">
+                <div>
+                    <label>开始数字：</label>
+                    <ui-text-field v-model.number="start" />
+                </div>
+                <div>
+                    <label>结束数字：</label>
+                    <ui-text-field v-model.number="end" />
+                </div>
+                <div class="tip">网址：</div>
+                <ui-text-field v-model.number="text" multiLine hintText="http://" :rows="2" />
+                <!--<textarea class="form-control" v-model="text" rows="2" placeholder="http://"></textarea>-->
+                <div class="btns">
+                    <ui-raised-button label="生成代码" primary @click="compute" />
+                </div>
+                <div>生成的代码：</div>
+                <pre><code>{{ code }}</code></pre>
+                <!--<ul class="image-list">-->
+                <!--<li v-for="image in images">-->
+                <!--{{ image }}-->
+                <!--</li>-->
+                <!--</ul>-->
+            </section>
+        </div>
     </my-page>
 </template>
 
