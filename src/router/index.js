@@ -4,7 +4,6 @@ import Router from 'vue-router'
 const Home = resolve => require(['@/views/Home'], resolve)
 const Patch = resolve => require(['@/views/Patch'], resolve)
 const CodeGenerate = resolve => require(['@/views/CodeGenerate'], resolve)
-const CodeGenerateHelp = resolve => require(['@/views/CodeGenerateHelp'], resolve)
 const UrlCoding = resolve => require(['@/views/UrlCoding'], resolve)
 const UrlCodingHelp = resolve => require(['@/views/UrlCodingHelp'], resolve)
 const Confusion = resolve => require(['@/views/Confusion'], resolve)
@@ -34,10 +33,6 @@ let routes = [
     {
         path: '/code/generate',
         component: CodeGenerate
-    },
-    {
-        path: '/code/generate/help',
-        component: CodeGenerateHelp
     },
     {
         path: '/pattern',

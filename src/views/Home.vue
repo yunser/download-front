@@ -19,6 +19,7 @@
 </template>
 
 <script>
+    /* eslint-disable */
     export default {
         data () {
             return {
@@ -46,7 +47,16 @@
                         desc: '',
                         icon: '/static/img/download.svg',
                         to: '/code/generate'
-                    }
+                    },
+                    {
+                        href: 'https://wallpaper.yunser.com/',
+                        to: 'xxx',
+                        target: '_blank',
+                        icon: 'https://icons.yunser.com/icons/wallpaper.svg',
+                        name: '壁纸',
+                        description: '',
+                        tags: ['生活']
+                    },
                 ]
             }
         },
